@@ -1,116 +1,104 @@
-# Digital-Banking-Fraud-Risk-Analytics
+# Digital Banking Fraud Risk Analytics
 
-# Project Overview 
-This project demonstrates an end-to-end banking fraud analytics solution using MySQL and Power BI.
-The project simulates digital banking transactions and provides interactive dashboards to monitor fraud trends, customer risk, merchant performance, and transaction analytics.
+An end-to-end fraud analytics project using SQL and Power BI to identify transaction patterns, customer risk, high-risk categories, merchants, locations, and time-based fraud trends.
 
+## Project Overview
 
-# Business Problem
-Banks process millions of digital transactions every day. Detecting suspicious activities and monitoring fraud trends are critical for reducing financial losses and improving customer security.
+This project analyzes a large-scale synthetic banking transaction dataset containing approximately 1.59 million transactions.
 
-This dashboard helps business users identify:
+The objective is to identify fraud patterns and translate transaction-level data into actionable business insights for fraud monitoring and risk analysis.
 
-- Fraud trends over time
-- High-risk customers
-- High-risk merchants
-- Fraud-prone payment channels
-- Transaction distribution across locations
+## Business Questions
 
-# Tools Used 
-- MySQL
-- SQL
-- Power BI
-- DAX
-- Python
-- Jupyter Notebook
+The analysis focuses on:
 
-# Database
-Customers : 5,000
+- What is the overall fraud rate?
+- Which transaction categories have the highest fraud risk?
+- Which states show elevated fraud rates?
+- When does fraud occur most frequently?
+- Which merchants have unusually high fraud activity?
+- Which customers show higher observed fraud rates?
+- Does fraud behavior differ across gender and age groups?
+- Are fraudulent transactions generally larger than legitimate transactions?
+- How does fraud change over time?
 
-Accounts : 5,000
+## Dataset
 
-Merchants : 200
+The project uses the `fraudTrain` dataset containing transaction-level banking data.
 
-Transactions : 100,000
+Key fields include:
 
-# Dashboard Pages
-### Executive Overview
+- Transaction date and time
+- Transaction amount
+- Customer/card identifier
+- Merchant
+- Transaction category
+- Gender
+- Date of birth
+- City and state
+- Geographic coordinates
+- Fraud indicator
 
-- Total Transactions
-- Fraud Cases
-- Fraud Rate
-- Fraud Amount
-- Fraud by Channel
-- Fraud by Location
-- Monthly Fraud Trend
+The dataset is synthetically generated and does not contain real customer or financial information.
 
----
+## SQL Analysis
 
-### Customer Risk Analytics
+The SQL analysis includes:
 
-- Fraud by Age Group
-- Fraud by Gender
-- Top Risk Customers
-- Fraud by State
+- Overall fraud summary
+- Fraud analysis by transaction category
+- Geographic fraud analysis
+- Hourly fraud analysis
+- High-risk merchant analysis
+- Customer risk analysis
+- Gender-based analysis
+- Age-group analysis
+- Fraud vs. legitimate transaction amounts
+- Monthly fraud trends
 
----
+### SQL Techniques Used
 
-### Merchant Analytics
+- `GROUP BY`
+- Aggregate functions
+- `CASE WHEN`
+- `HAVING`
+- `ORDER BY`
+- Window/analytical concepts
+- SQL Views
+- Date and time functions
+- Conditional calculations
+- Filtering and ranking
 
-- Top Risk Merchants
-- Merchant Category Analysis
-- Fraud Amount Analysis
+## Key Findings
 
----
+Some notable findings from the analysis:
 
-### Transaction Monitoring
+- Overall fraud rate is approximately **0.91%**.
+- Late-night transactions show substantially higher observed fraud rates.
+- `shopping_net` has one of the highest observed category-level fraud rates.
+- Fraudulent transactions have a substantially higher average transaction amount than legitimate transactions.
+- Some customers and merchants show significantly elevated observed fraud rates.
+- Fraud patterns vary across geographic locations and customer segments.
 
-- Fraud by Hour
-- Fraud by Transaction Type
-- Fraud Transaction Details
+## SQL Views
 
-# SQL Concepts
-✔ Joins
+Reusable SQL views were created for:
 
-✔ Group By
+- `fraud_category_analysis`
+- `customer_risk_analysis`
+- `hourly_fraud_analysis`
+- `monthly_fraud_analysis`
 
-✔ Aggregate Functions
+These views prepare summarized datasets that can be used for downstream dashboarding and analysis.
 
-✔ Views
+## Project Structure
 
-✔ Window Functions
-
-✔ CTE
-
-✔ Ranking
-
-# Power BI Feature 
-✔ Data Modelling
-   <img width="1581" height="780" alt="image" src="https://github.com/user-attachments/assets/a0203156-284b-490a-9f7f-572ff56c919e" />
-
-✔ DAX Measures
-
-✔ KPI Cards
-
-✔ Slicers
-
-✔ Interactive Filters
-
-✔ Drill-down Charts
-
-#Dashboard Preview
-<img width="1303" height="730" alt="image" src="https://github.com/user-attachments/assets/50ae649d-e769-4834-8f62-4447f323b3aa" />
-
-### Customer Risk Analytics
-<img width="1297" height="729" alt="image" src="https://github.com/user-attachments/assets/da7d816d-8e4e-4a2a-a064-1c6b7b96f42f" />
-
-### Executive Overview
-<img width="1287" height="714" alt="image" src="https://github.com/user-attachments/assets/39214125-19ff-4ac2-97f7-1f5161a5cc37" />
-
-<img width="1276" height="692" alt="image" src="https://github.com/user-attachments/assets/54cc5fe6-bf82-44be-ba44-aad0de880211" />
-
-**Note:** This project uses synthetically generated banking data created for simulating Real workflow and portfolio purposes. No real customer or financial data is included.
-
-
-
-
+```text
+Digital-Banking-Fraud-Risk-Analytics/
+│
+├── sql/
+│   └── fraud_analysis.sql
+│
+├── data/
+│
+└── README.md
